@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   const { topic } = req.body;
 
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
+  const response = await fetch("/api/analyze", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
