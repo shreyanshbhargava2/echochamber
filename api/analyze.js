@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "x-api-key": process.env.blaze-0b7x7h7rljcmy3ow,
+      "x-api-key": process.env.ANTHROPIC_API_KEY!,
       "anthropic-version": "2023-06-01",
     },
     body: JSON.stringify({
