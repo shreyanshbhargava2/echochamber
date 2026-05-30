@@ -1,7 +1,7 @@
-export default async function handler(req, res) {
-  const { topic } = req.body;
+export default async function handler(req: any, res: any) {
+  const { topic, prompt } = req.body;
 
-  const response = await fetch("/api/analyze", {
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     body: JSON.stringify({
       model: "claude-opus-4-5",
       max_tokens: 2000,
-      messages: [{ role: "user", content: `Analyze media coverage of: ${topic}` }],
+      messages: [{ role: "user", content: prompt }],
     }),
   });
 
