@@ -359,19 +359,11 @@ Return ONLY a valid JSON object (no markdown, no backticks) with this exact stru
 
 Make the analysis realistic, nuanced, and educational. Show genuine differences in framing, word choice, and what each outlet emphasizes or ignores. Return ONLY valid JSON.`;
 
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": "blaze-0b7x7h7rljcmy3ow",
-          "anthropic-version": "2023-06-01"
-        },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 2000,
-          messages: [{ role: "user", content: prompt }],
-        }),
-      });
+const response = await fetch("/api/analyze", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ topic: t, prompt }),
+});
 
       if (!response.ok) {
         throw new Error("API request failed");
