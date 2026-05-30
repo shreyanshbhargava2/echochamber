@@ -393,6 +393,7 @@ Make the analysis realistic, nuanced, and educational. Show genuine differences 
 
       setData(parsed);
     } catch (err) {
+      console.error("API error:", err);
       const fallback = { ...SAMPLE_DATA, topic: t };
       setData(fallback);
     }
